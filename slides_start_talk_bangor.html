@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>R for data handling, visualisation and reporting</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marco Gandolfo Bangor University" />
+    <link href="slides_start_talk_bangor_files/remark-css/default.css" rel="stylesheet" />
+    <link href="slides_start_talk_bangor_files/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R for data handling, visualisation and reporting
+## Made using <a href="https://github.com/yihui/xaringan">Xaringan</a>
+### Marco Gandolfo<br>Bangor University
+### Lunchtime session
+### (updated: 2019-06-28)
+
+---
+
+  
+
+
+&lt;style type="text/css"&gt;
+/* custom.css */
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
+.plot-callout {
+  height: 225px;
+  width: 450px;
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+  padding: 0px;
+  z-index: 100;
+}
+.plot-callout img {
+  width: 100%;
+  border: 4px solid #23373B;
+}
+&lt;/style&gt;
+
+
+
+
+.center[
+# WHAT IS R?
+]
+
+.left[
+  
+  **R** is a programming language and **free** software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing.
+  
+  R is based on programming language S created in 1976 by John Chambers.
+  
+  First R version was released in 1995 by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand.
+  
+  First stable beta version of **R** was released in 2000.
+]
+--
+.left[
+&lt;img src="Images/Fig_2d_ScholarlyImpact.png" width="350" height="250" /&gt;&lt;img src="Images/Fig_2f_ScholarlyImpactLogs.png" width="350" height="250" /&gt;
+  
+  ]
+
+---
+.center[
+#R vs R Studio
+]
+
+  .pull-left[
+**R** is the programming language,
+You install it and is pretty much a console (terminal).
+
+Not very user friendly
+
+&lt;img src="Images/RGui.png" width="350" height="275" /&gt;
+]
+
+--
+
+.pull-right[
+**R Studio** is a free and open-source integrated development environment (IDE) for R.
+
+Nicer, more user friendly. (not just that)
+&lt;img src="Images/RStudio_window.png" width="350" height="275" /&gt;
+
+]
+
+---
+
+.center[
+# RStudio interface is like cooking
+
+
+&lt;img src="Images/RStudio.jpg" width="700" height="450" /&gt;
+
+]
+
+.footnote[
+&lt;font size="2"&gt; Image From RLadies NewCastle group&lt;/font&gt;
+]
+---
+
+.center[
+##Installing R
+]
+
+Installing R: https://www.r-project.org
+
+Installing R Studio: https://www.rstudio.com
+
+--
+
+Both softwares have a Windows, Linux and Mac OS version and from my experience they work pretty well on all of the three systems.
+
+Great Tool, does not need installation at the moment fully free is:
+
+https://www.r-studio.cloud
+
+(still in beta). You can open R studio from browser anywhere create projects, install packages and read data just as you would do offline on an installed version.
+
+
+---
+
+.center[ #R Packages
+
+&lt;img src="Images/R_packages.jpg" width="700" height="450" /&gt;
+
+
+]
+
+---
+
+.center[#Loads of packages, great but..
+
+
+&lt;iframe src="https://giphy.com/embed/3o6Mbsras7qdAwgABW" width="480" height="364" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href="https://giphy.com/gifs/season-3-the-simpsons-3x5-3o6Mbsras7qdAwgABW"&gt;&lt;/a&gt;&lt;/p&gt;
+
+Having so much choice can be confusing but we'll work on it
+]
+
+---
+.center[
+#What do I do when I first open R?
+**CREATE AN R PROJECT**
+
+]
+
+
+&lt;img src="Images/project.gif" width="700" height="450" /&gt;
+
+---
+
+.center[#Why not just typing code and save scripts?
+
+]
+
+ - Keeps all the files and scripts in a centralised working directory
+ 
+ - Less likely to need to type paths to read data or save images (everything is kept there in the project directory!)
+ 
+ - *Beautifully* forces you to be organised!
+ 
+ - It ties your history and global environment (active variables) to the project.
+If you need to work on something else you can just switch project!!!
+
+ - It allows pushing to GIT/version control
+
+
+.center[
+&lt;iframe src="https://giphy.com/embed/l2JInZhQ501ASOEs8" width="275" height="175" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href="https://giphy.com/gifs/warnerarchive-a-mighty-wind-l2JInZhQ501ASOEs8"&gt;&lt;/a&gt;&lt;/p&gt;
+]
+---
+
+.center[
+#A great ensemble of packages: The tidyverse
+
+
+&lt;img src="Images/tidyverse_2.png" width="500" height="250" /&gt;
+]
+
+
+.left[
+The **tidyverse** is a coherent system of packages for data manipulation, exploration and visualisation that shares a common design philosophy.
+]
+
+---
+.center[
+#The Tidyverse: Advantages
+
+&lt;div class="figure"&gt;
+&lt;img src="Images/tidy_workflow.png" alt="https://www.tidyverse.org" width="600" height="375" /&gt;
+&lt;p class="caption"&gt;https://www.tidyverse.org&lt;/p&gt;
+&lt;/div&gt;
+
+]
+
+.left[
+Each of these packages has consistent functions, coherent syntax and proposes uniform standard procedures and coding style for data science.
+]
+
+---
+
+.center[
+#Install and load the Tidyverse
+##(and any other package)
+]
+
+
+```r
+install.packages("tidyverse") # Install 
+
+library(tidyverse) # Load
+```
+
+
+This is quite handy as we are installing/loading all the components of the tidyverse in two commands!
+
+---
+.center[
+#Read some data (Finally!)
+]
+.top[
+
+```r
+data &lt;- read_csv("randomdata.csv")
+```
+]
+
+.bottom[
+
+```r
+data
+```
+
+```
+## # A tibble: 14,352 x 7
+##        X SubjID Site  Task   Congruency    RT   Acc
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 11247 p64    ffa   object cong        907.     0
+##  2  9908 p59    lo    object incong      737.     0
+##  3 13723 p72    lo    object cong        635.     0
+##  4  4440 P16    ffa   face   incong      529.     1
+##  5  4874 P17    lo    face   cong       1011.     0
+##  6 12645 p68    lo    object cong       1124.     0
+##  7  5755 P20    ffa   face   cong        883.     1
+##  8  4104 P15    ffa   face   cong        731.     0
+##  9 13762 p73    ffa   object incong      919.     1
+## 10 13461 p72    ffa   object cong        990.     0
+## # … with 14,342 more rows
+```
+
+]
+
+---
+.center[
+#Things to notice
+]
+
+.left[
+
+```r
+read_csv("randomdata.csv")
+```
+- For consistency here I used the function read_csv function. This is part of the *readr* package loaded and installed with the **tidyverse**.
+
+- You can add arguments to this function, for instance `col_names = FALSE` in case your data do not have header columns.
+
+- You can use the function `read_delim()` to read a .txt file.
+
+- **NB** Among the quotes if your data are not in the working directory there would be the whole path where the file is. This is the advantage of having a **project directory!**
+
+- Compared to **R Base** commands ` read.csv` or `read.table` it will read your data `as.tibble()` a modern version of dataframes highly compatible with the tidyverse. Follow this [link](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html) for details.
+
+]
+
+---
+.center[
+# Our data should be _tidy_
+]
+
+For operations with all the tidyverse packages (including ggplot2) our data should be in a tidy format. **Tidy data sets are arranged such that each variable is a column and each observation (or trial) is a row.**
+
+
+.center[
+&lt;img src="Images/tidy_data.jpg" width="500" height="300" /&gt;
+]
+
+Because often this is often the way data come out from our experiments and lack of time we will start with an already tidy dataset. For tidying your data you can use either `gather()` and `spread()` from _tidyr_ or `melt()` and `cast()` from package `reshape2`.
+---
+.center[
+#Wrangling data with _Dplyr_
+
+
+&lt;img src="Images/dplyr.png" width="400" height="450" /&gt;
+]
+
+---
+.center[
+#Processing data with `dplyr`
+]
+Dplyr has mainly the following 7 crucial functions for data wrangling:
+
+1. `select()` **Keeps** only the __variables__ we specify **(filters by columns)**
+
+1. `filter()` __Keeps__ only the __observations__ we specify **(filters the rows)**
+
+1. `rename()` **Renames** the variables names but keeps everything
+
+1. `group_by()` **Groups** data by variable in order to summarise
+
+1. `summarise()` **Computes** variables on a grouped dataset (e.g. average)
+
+1. `mutate()` **Computes** new variables based on those we have.
+
+1. `arrange()` **Sorts** data in the order you indicate.
+
+---
+
+.center[
+#Get your data ready for the analyses 
+]
+
+Let's go back to our _datafile_. These are randomly generated data from an imaginary TMS experiment where we stimulate a face selective area (_ffa_, stimulator does not even reach it)
+and an object selective area (_lo_). they were stimulated in two different experiments (_face_ vs _object_) and in two different conditions (cong vs incong). **Mixed ANOVA design**
+
+Let's have a look..
+.center[
+
+```
+## # A tibble: 6 x 7
+##       X SubjID Site  Task   Congruency    RT   Acc
+##   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 11247 p64    ffa   object cong        907.     0
+## 2  9908 p59    lo    object incong      737.     0
+## 3 13723 p72    lo    object cong        635.     0
+## 4  4440 P16    ffa   face   incong      529.     1
+## 5  4874 P17    lo    face   cong       1011.     0
+## 6 12645 p68    lo    object cong       1124.     0
+```
+]
+.center[
+### Let's wrangle them for analyses and plots!
+]
+
+---
+
+.pull-left[
+
+]
+
+
+---
+
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 14,352 x 7
+##        X SubjID Site  Task   Congruency    RT   Acc
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 11247 p64    ffa   object cong        907.     0
+##  2  9908 p59    lo    object incong      737.     0
+##  3 13723 p72    lo    object cong        635.     0
+##  4  4440 P16    ffa   face   incong      529.     1
+##  5  4874 P17    lo    face   cong       1011.     0
+##  6 12645 p68    lo    object cong       1124.     0
+##  7  5755 P20    ffa   face   cong        883.     1
+##  8  4104 P15    ffa   face   cong        731.     0
+##  9 13762 p73    ffa   object incong      919.     1
+## 10 13461 p72    ffa   object cong        990.     0
+## # … with 14,342 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X)  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 14,352 x 6
+##    SubjID Site  Task   Congruency    RT   Acc
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 p64    ffa   object cong        907.     0
+##  2 p59    lo    object incong      737.     0
+##  3 p72    lo    object cong        635.     0
+##  4 P16    ffa   face   incong      529.     1
+##  5 P17    lo    face   cong       1011.     0
+##  6 p68    lo    object cong       1124.     0
+##  7 P20    ffa   face   cong        883.     1
+##  8 P15    ffa   face   cong        731.     0
+##  9 p73    ffa   object incong      919.     1
+## 10 p72    ffa   object cong        990.     0
+## # … with 14,342 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X) %&gt;% 
+  rename(Experiment = Task)  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 14,352 x 6
+##    SubjID Site  Experiment Congruency    RT   Acc
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 p64    ffa   object     cong        907.     0
+##  2 p59    lo    object     incong      737.     0
+##  3 p72    lo    object     cong        635.     0
+##  4 P16    ffa   face       incong      529.     1
+##  5 P17    lo    face       cong       1011.     0
+##  6 p68    lo    object     cong       1124.     0
+##  7 P20    ffa   face       cong        883.     1
+##  8 P15    ffa   face       cong        731.     0
+##  9 p73    ffa   object     incong      919.     1
+## 10 p72    ffa   object     cong        990.     0
+## # … with 14,342 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X) %&gt;% 
+  rename(Experiment = Task) %&gt;% 
+  filter(!SubjID %in% c("P19","P01","p58","p63"))  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 13,104 x 6
+##    SubjID Site  Experiment Congruency    RT   Acc
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 p64    ffa   object     cong        907.     0
+##  2 p59    lo    object     incong      737.     0
+##  3 p72    lo    object     cong        635.     0
+##  4 P16    ffa   face       incong      529.     1
+##  5 P17    lo    face       cong       1011.     0
+##  6 p68    lo    object     cong       1124.     0
+##  7 P20    ffa   face       cong        883.     1
+##  8 P15    ffa   face       cong        731.     0
+##  9 p73    ffa   object     incong      919.     1
+## 10 p72    ffa   object     cong        990.     0
+## # … with 13,094 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X) %&gt;% 
+  rename(Experiment = Task) %&gt;% 
+  filter(!SubjID %in% c("P19","P01","p58","p63")) %&gt;% 
+  group_by(SubjID, Experiment, Site, Congruency) %&gt;%   #&lt;&lt;
+  summarise(meanRT = mean(RT[Acc==1]), meanAcc = mean(Acc))  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 168 x 6
+## # Groups:   SubjID, Experiment, Site [84]
+##    SubjID Experiment Site  Congruency meanRT meanAcc
+##    &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+##  1 P02    face       ffa   cong         827.   0.52 
+##  2 P02    face       ffa   incong       778.   0.452
+##  3 P02    face       lo    cong         849.   0.472
+##  4 P02    face       lo    incong       959.   0.355
+##  5 P03    face       ffa   cong         844.   0.460
+##  6 P03    face       ffa   incong       845.   0.433
+##  7 P03    face       lo    cong         839.   0.524
+##  8 P03    face       lo    incong       838.   0.438
+##  9 P04    face       ffa   cong         843.   0.424
+## 10 P04    face       ffa   incong       821.   0.516
+## # … with 158 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X) %&gt;% 
+  rename(Experiment = Task) %&gt;% 
+  filter(!SubjID %in% c("P19","P01","p58","p63")) %&gt;% 
+  group_by(SubjID, Experiment, Site, Congruency) %&gt;%  
+  summarise(meanRT = mean(RT[Acc==1]), meanAcc = mean(Acc)) %&gt;%
+  mutate(Efficiency = meanRT/meanAcc)  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+```
+## # A tibble: 168 x 7
+## # Groups:   SubjID, Experiment, Site [84]
+##    SubjID Experiment Site  Congruency meanRT meanAcc Efficiency
+##    &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+##  1 P02    face       ffa   cong         827.   0.52       1591.
+##  2 P02    face       ffa   incong       778.   0.452      1723.
+##  3 P02    face       lo    cong         849.   0.472      1799.
+##  4 P02    face       lo    incong       959.   0.355      2701.
+##  5 P03    face       ffa   cong         844.   0.460      1834.
+##  6 P03    face       ffa   incong       845.   0.433      1951.
+##  7 P03    face       lo    cong         839.   0.524      1600.
+##  8 P03    face       lo    incong       838.   0.438      1915.
+##  9 P04    face       ffa   cong         843.   0.424      1988.
+## 10 P04    face       ffa   incong       821.   0.516      1591.
+## # … with 158 more rows
+```
+]]
+---
+class: split-40
+count: false
+
+.column[.content[
+
+```r
+data %&gt;% 
+  select(-X) %&gt;% 
+  rename(Experiment = Task) %&gt;% 
+  filter(!SubjID %in% c("P19","P01","p58","p63")) %&gt;% 
+  group_by(SubjID, Experiment, Site, Congruency) %&gt;%  
+  summarise(meanRT = mean(RT[Acc==1]), meanAcc = mean(Acc)) %&gt;%
+  mutate(Efficiency = meanRT/meanAcc) -&gt; 
+  AveMat  #&lt;&lt;
+```
+]]
+.column[.content.center[
+
+]]
+
+&lt;style type="text/css"&gt;
+.remark-code{line-height: 1.5; font-size: 80%}
+&lt;/style&gt;
+
+.center[
+We successfully:
+]
+- Removed one column we did not want to use with `select`
+- Renamed a variable with `rename`
+- Excluded outliers with `filter`(click [here](https://sites.google.com/view/marcogandolfo/resources) to find a function to identify outliers)
+- Averaged trials by participant by condition with `group_by` and `summarise`
+- Computed a new variable with `mutate`
+- Saved it all in a new data.frame called AveMat
+
+
+---
+.center[
+#ggPlot2
+
+&lt;div class="figure"&gt;
+&lt;img src="Images/ggplot1.png" alt="https://www.tidyverse.org" width="400" height="450" /&gt;
+&lt;p class="caption"&gt;https://www.tidyverse.org&lt;/p&gt;
+&lt;/div&gt;
+]
+
+---
+.center[
+#The skeleton of any ggplot
+] 
+
+- **Tidy data**
+
+- __geom__etric objects are the shape or visual representation of our data. ("the how")
+
+- __aes__thetics map the data to geom (_the what_)
+
+&lt;div class="figure"&gt;
+&lt;img src="Images/ggplot2.png" alt="Sources: https://rfortherestofus.com/ and https://www.williamrchase.com " width="100%" /&gt;
+&lt;p class="caption"&gt;Sources: https://rfortherestofus.com/ and https://www.williamrchase.com &lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+
+.center[
+#Scatterplot
+]
+
+
+.left-code[
+
+```r
+ggplot(menu, 
+       aes(Fat, 
+           Calories)) + 
+  geom_point() 
+```
+
+
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/plot-label-out-1.png" width="100%" /&gt;
+]
+
+
+---
+.center[
+#Scatterplot
+]
+
+
+.left-code[
+
+```r
+menu %&gt;% 
+filter(Category %in% c("Breakfast",
+                       "Chicken &amp; Fish")) %&gt;%   
+ggplot(aes(Fat, 
+           Calories, 
+           color = Category, 
+           fill = Category)) + 
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic(base_size = 10) +
+  labs(x = "Fat(g)", 
+       y = "Calories (kcal)") +
+  coord_cartesian(ylim = c(0,1000), 
+                  xlim = c(0,50))
+```
+
+
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/plot-label-now-1.png" width="100%" /&gt;
+]
+
+---
+.center[
+#A barplot
+]
+
+.left-code[
+
+```r
+ggplot(AveMat) +
+aes(Site, 
+    Efficiency, 
+    fill = Congruency) +
+stat_summary(geom = "bar", 
+             fun.y = mean, 
+             position = "dodge", 
+             color = "black") + 
+stat_summary(geom = "errorbar", 
+             fun.data = mean_se, 
+             position = position_dodge(.9),
+             width = 0.2, 
+             color = "black")
+```
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/graf2-label-now-1.png" width="100%" /&gt;
+]
+
+---
+.center[
+#A barplot
+]
+
+.left-code[
+
+```r
+ggplot(AveMat) +
+aes(Site, 
+    Efficiency, 
+    fill = Congruency) +
+stat_summary(geom = "bar", 
+             fun.y = mean, 
+             position = "dodge", 
+             color = "black") + 
+stat_summary(geom = "errorbar", 
+             fun.data = mean_se, 
+             position = position_dodge(.9),
+             width = 0.2, 
+             color = "black") +
+labs(y = "Efficiency ms/Acc", 
+     x= "Stimulation site") +
+facet_wrap(~Experiment) +
+theme_classic(base_size = 10) +
+scale_fill_grey() +
+coord_cartesian(ylim = c(1250,2000))
+```
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/graf3-label-now-1.png" width="100%" /&gt;
+]
+
+
+---
+.center[
+#A violin plot
+]
+
+
+.left-code[
+
+```r
+ggplot(AveMat) +
+aes(Site, 
+    Efficiency, 
+    fill = Congruency) +
+geom_violin(alpha = 0.2) +
+facet_wrap(~Experiment)
+```
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/graf4-label-now-1.png" width="100%" /&gt;
+]
+
+
+---
+
+.center[
+#A  prettier violin plot with a boxplot
+]
+
+
+.left-code[
+
+```r
+ggplot(AveMat) +
+aes(Site, 
+    Efficiency, 
+    fill = Congruency) +
+geom_violin(alpha = 0.2) +
+geom_boxplot(aes(middle= mean(Efficiency)), 
+                 width = 0.20, 
+                 position = position_dodge(0.9), 
+                 outlier.shape = NA, 
+                 alpha = 0.6) + 
+labs(y = "Efficiency ms/Acc", 
+     x= "Stimulation site") + 
+facet_wrap(~Experiment) +
+theme_classic(base_size = 10) +
+scale_fill_brewer(palette = "Dark2") +
+theme(strip.background = element_blank()) 
+```
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/graf5-label-now-1.png" width="100%" /&gt;
+]
+
+
+---
+
+.center[
+# A violinplot with individual data points
+]
+
+.left-code[
+
+```r
+ggplot(AveMat) +
+aes(Site, Efficiency, fill = Congruency) +
+geom_violin(alpha = 0.2) +
+labs(y = "Efficiency ms/Acc", x= "Stimulation site") + 
+facet_wrap(~Experiment) +
+theme_classic(base_size = 10) +
+scale_fill_brewer(palette = "Dark2") +
+theme(strip.background = element_blank()) +
+geom_point(shape = 21,size=1, 
+           position = position_jitterdodge(0.2), 
+           color="black",
+           alpha=0.5)
+```
+]
+
+.right-plot[
+&lt;img src="slides_start_talk_bangor_files/figure-html/graf6-label-now-1.png" width="100%" /&gt;
+]
+
+
+---
+.center[
+#Report your data with RMarkdown
+
+
+&lt;img src="Images/hex-rmarkdown.png" width="400" height="450" /&gt;
+]
+
+---
+.center[
+#R Markdown
+]
+The document format "R Markdown" was first introduced in the knitr package (Xie, 2015, 2019) in early 2012. It allows to embed code chunks of several programming languages in Markdown documents. Through another package called (_Pandoc_)[http://pandoc.org] it is possible to convert Markdown documents to a large variety of formats (pdf, HTML, Word etc.)
+
+I strongly advice to use it if you are working in group.
+It allows to build simply and effectively data reports to share with your lab members but has much more potential:
+
+- Make slides for presentations (like these ones :) )
+- Write journal articles and books.
+- Make websites and blogs [(Here example of a tutorial)](https://marco2gandolfo.github.io/rforpsychologists/My_First_R_Stuff_Tutorial.html)
+
+
+
+---
+.center[
+#Markdown Sintax vs Knitted file
+]
+
+  .pull-left[
+How an not-rendered markdown file looks like
+
+&lt;img src="Images/hello-rmd.png" width="350" height="275" /&gt;
+]
+
+--
+
+.pull-right[
+How a rendered rmarkdown file looks like in its simplest form.
+&lt;img src="Images/hello-rmd-out.png" width="350" height="325" /&gt;
+]
+
+
+.footnote[
+######Pictures from https://bookdown.org/yihui/rmarkdown/r-code.html
+]
+
+
+
+---
+.center[
+#Basic syntax
+]
+
+.pull-left[
+`###Code`
+- `#Header 1`
+- `##Header 2`
+- `###Header 3`
+- `*italic*`
+- `**bold**`
+- `[A link to wikipedia](www.wikipedia.com)`
+- `&gt; *A very felt blocked quote at the begin of your paper*`
+]
+
+.pull-right[
+###Render
+- #Header 1
+- ##Header 2
+- ###Header 3
+- *Italic*
+- **bold**
+- [A link to wikipedia](www.wikipedia.com)
+- &gt; *A very felt blocked quote at the begin of your paper*
+]
+
+---
+
+.center[
+#Basic syntax
+]
+
+.pull-left[
+`###Code`
+- `- list without numbers`
+- `- list without numbers`
+- `1 list with numbers`
+- `1 list with numbers`
+
+***
+
+`![R logo](C:/Users/Uomom/r_logo.png)`
+]
+
+.pull-right[
+###Render
+- list without numbers
+- list without numbers
+1. list with numbers
+1. list with numbers
+
+***
+
+&lt;img src="Images/r_logo.png" width="50" height="50" /&gt;
+
+
+
+
+]
+
+
+---
+.center[
+#Make a Table and compute descriptives with Tidyverse
+]
+
+
+
+```r
+AveMat %&gt;% 
+group_by(Site, 
+         Experiment,
+         Congruency) %&gt;% 
+summarise(mEff = mean(Efficiency), 
+          sdEff = sd(Efficiency), 
+          seEff = sdEff/sqrt(42)) -&gt; DescMat 
+
+
+knitr::kable(DescMat)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Site &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Experiment &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Congruency &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mEff &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sdEff &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; seEff &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ffa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; face &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1681.792 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 130.7294 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20.17198 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ffa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; face &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; incong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1889.892 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 375.3252 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57.91393 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ffa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; object &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1699.944 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 178.4489 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27.53526 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ffa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; object &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; incong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1885.894 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 363.5244 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56.09303 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; lo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; face &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1703.939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 149.1910 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.02067 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; lo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; face &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; incong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1834.283 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 355.1147 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 54.79538 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; lo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; object &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; cong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1679.292 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 226.9356 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35.01693 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; lo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; object &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; incong &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1819.530 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 480.9719 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 74.21558 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+---
+#Why I didn't do any analyses?
+
+- Wrangling data and manipulate matrices is the pre-requisite of running any analysis.
+
+- Superior data wrangling and visualisation capabilities of R might motivate more to step away from manipulating data with spreadsheets.
+
+- Many use different statistical analyses but Everyone has to hit their head on wrangling and visualise data.
+
+.center[
+&lt;iframe src="https://giphy.com/embed/3otPoCmoVM8gvKbAEo" width="480" height="204" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href="https://giphy.com/gifs/quentin-tarantino-pulp-fiction-harvey-keitel-3otPoCmoVM8gvKbAEo"&gt;&lt;/a&gt;&lt;/p&gt;
+]
+
+---
+
+.center[
+#Resources
+]
+
+- https://www.rstudio.com/resources/cheatsheets/ quick guides to remind packages main functions
+
+- https://r4ds.had.co.nz/ R for data science book
+
+- https://evamaerey.github.io/tidyverse_in_action/tidyverse_in_action.html#1 great presentation that helped making this one
+
+- https://marco2gandolfo.github.io/rforpsychologists/My_First_R_Stuff_Tutorial.html
+
+- https://rfortherestofus.com/
+
+- https://www.williamrchase.com/slides/ggplot_intro.html#1 Another great presentation for dataviz in ggplot very inspiring.
+
+- http://joeystanley.com/ A great site full of resources
+
+- https://psyteachr.github.io/ Impressive collection of Materials from Glasgow Uni
+
+There is much more. The community is making R really approachable and we should all remember that it is *Free*!
+---
+
+class: center
+
+#Thanks for your attention
+
+
+&lt;img src="Images/riscool.png" width="100%" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
