@@ -4,11 +4,9 @@ subtitle: "Made using [Xaringan](https://github.com/yihui/xaringan)"
 author: "Marco Gandolfo<br>Bangor University"
 institute: "Lunchtime session"
 date: "(updated: `r Sys.Date()`)"
-
 output:
   xaringan::moon_reader:
   lib_dir: libs
-  #css: ["remark-css-0.0.1/kunoichi", "remark-css-0.0.1/ninjutsu"]
   nature:
     highlightStyle: github
     highlightLines: true
@@ -16,6 +14,7 @@ output:
     titleSlideClass: ["center", "middle"]
     ratio: 20:10
       
+  #css: ["remark-css-0.0.1/kunoichi", "remark-css-0.0.1/ninjutsu"]
 ---
   
 ```{r setup, include=FALSE}
