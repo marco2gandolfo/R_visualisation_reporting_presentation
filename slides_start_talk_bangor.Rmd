@@ -100,8 +100,8 @@ source(file = "xaringan_reveal_parenthethical.R")
 --
 .left[
 ```{r, echo=FALSE, out.width= 350, out.height= 250}
-    knitr::include_graphics("Images/Fig_2d_ScholarlyImpact.png")
-    knitr::include_graphics("Images/Fig_2f_ScholarlyImpactLogs.png")
+    knitr::include_graphics(path = "Images/Fig_2d_ScholarlyImpact.png")
+    knitr::include_graphics(path = "Images/Fig_2f_ScholarlyImpactLogs.png")
 ```
   
   ]
@@ -118,7 +118,7 @@ You install it and is pretty much a console (terminal).
 Not very user friendly
 
 ```{r,echo=FALSE, out.width= 350, out.height= 275}
-knitr::include_graphics("Images/RGui.png")
+knitr::include_graphics(path = "Images/RGui.png")
 ```
 ]
 
@@ -129,7 +129,7 @@ knitr::include_graphics("Images/RGui.png")
 
 Nicer, more user friendly. (not just that)
 ```{r,echo=FALSE, out.width= 350, out.height= 275}
-knitr::include_graphics("Images/RStudio_window.png")
+knitr::include_graphics(path = "Images/RStudio_window.png")
 ```
 
 ]
@@ -141,7 +141,7 @@ knitr::include_graphics("Images/RStudio_window.png")
 
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics("Images/RStudio.jpg")
+knitr::include_graphics(path = "Images/RStudio.jpg")
 ```
 
 ]
@@ -175,7 +175,7 @@ https://www.r-studio.cloud
 .center[ #R Packages
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics("Images/R_packages.jpg")
+knitr::include_graphics(path = "Images/R_packages.jpg")
 ```
 
 
@@ -200,7 +200,7 @@ Having so much choice can be confusing but we'll work on it
 
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics("Images/project.gif")
+knitr::include_graphics(path = "Images/project.gif")
 ```
 
 ---
@@ -231,7 +231,7 @@ If you need to work on something else you can just switch project!!!
 
 
 ```{r,echo=FALSE, out.width= 500, out.height= 250}
-knitr::include_graphics("Images/tidyverse_2.png")
+knitr::include_graphics(path = "Images/tidyverse_2.png")
 ```
 ]
 
@@ -245,7 +245,7 @@ The **tidyverse** is a coherent system of packages for data manipulation, explor
 #The Tidyverse: Advantages
 
 ```{r,echo=FALSE,fig.cap= "https://www.tidyverse.org", out.width= 600, out.height= 375}
-knitr::include_graphics("Images/tidy_workflow.png")
+knitr::include_graphics(path = "Images/tidy_workflow.png")
 ```
 
 ]
@@ -321,7 +321,7 @@ For operations with all the tidyverse packages (including ggplot2) our data shou
 
 .center[
 ```{r,echo=FALSE, out.width= 500, out.height= 300}
-knitr::include_graphics("Images/tidy_data.jpg")
+knitr::include_graphics(path = "Images/tidy_data.jpg")
 ```
 ]
 
@@ -332,7 +332,7 @@ Because often this is often the way data come out from our experiments and lack 
 
 
 ```{r, echo = FALSE,out.width= 400, out.height= 450}
-knitr::include_graphics("Images/dplyr.png")
+knitr::include_graphics(path = "Images/dplyr.png")
 ```
 ]
 
@@ -415,7 +415,7 @@ We successfully:
 #ggPlot2
 
 ```{r, ggplot2, echo = FALSE, fig.cap= "https://www.tidyverse.org", out.width=400, out.height= 450}
-knitr::include_graphics("Images/ggplot1.png")
+knitr::include_graphics(path = "Images/ggplot1.png")
 ```
 ]
 
@@ -431,7 +431,7 @@ knitr::include_graphics("Images/ggplot1.png")
 - __aes__thetics map the data to geom (_the what_)
 
 ```{r, ggplot3, echo = FALSE, fig.cap= "Sources: https://rfortherestofus.com/ and https://www.williamrchase.com ", fig.width= 500, fig.height= 180}
-knitr::include_graphics("Images/ggplot2.png")
+knitr::include_graphics(path = "Images/ggplot2.png")
 ```
 
 
@@ -661,7 +661,7 @@ geom_point(shape = 21,size=1,
 
 
 ```{r, ggplot4, echo = FALSE, fig.cap= "", out.width=400, out.height= 450}
-knitr::include_graphics("Images/hex-rmarkdown.png")
+knitr::include_graphics(path = "Images/hex-rmarkdown.png")
 ```
 ]
 
@@ -689,7 +689,7 @@ It allows to build simply and effectively data reports to share with your lab me
 How an not-rendered markdown file looks like
 
 ```{r,echo=FALSE, out.width= 350, out.height= 275}
-knitr::include_graphics("Images/hello-rmd.png")
+knitr::include_graphics(path = "Images/hello-rmd.png")
 ```
 ]
 
@@ -698,7 +698,7 @@ knitr::include_graphics("Images/hello-rmd.png")
 .pull-right[
 How a rendered rmarkdown file looks like in its simplest form.
 ```{r,echo=FALSE, out.width= 350, out.height= 325}
-knitr::include_graphics("Images/hello-rmd-out.png")
+knitr::include_graphics(path = "Images/hello-rmd-out.png")
 ```
 ]
 
@@ -764,7 +764,7 @@ knitr::include_graphics("Images/hello-rmd-out.png")
 ***
 
 ```{r, echo = FALSE,out.width = 50, out.height = 50}
-include_graphics("Images/r_logo.png")
+include_graphics(path = "Images/r_logo.png")
 ```
 
 
@@ -840,6 +840,6 @@ class: center
 
 
 ```{r, echo = FALSE}
-knitr::include_graphics("Images/riscool.png")
+knitr::include_graphics(path = "Images/riscool.png")
 ```
 
