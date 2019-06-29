@@ -140,7 +140,7 @@ knitr::include_graphics(path = "Images/RStudio_window.png")
 
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics(path = "Images/RStudio.jpg")
+knitr::include_graphics(path = "Images/RStudio.png")
 ```
 
 ]
@@ -174,7 +174,7 @@ https://www.r-studio.cloud
 .center[ #R Packages
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics(path = "Images/R_packages.jpg")
+knitr::include_graphics(path = "Images/R_packages.png")
 ```
 
 
