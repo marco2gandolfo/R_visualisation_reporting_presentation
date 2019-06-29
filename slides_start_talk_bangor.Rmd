@@ -128,7 +128,7 @@ knitr::include_graphics(path = "Images/RGui.png")
 
 Nicer, more user friendly. (not just that)
 ```{r,echo=FALSE, out.width= 350, out.height= 275}
-knitr::include_graphics(path = "Images/RStudio_window.png")
+knitr::include_graphics(path = "Images/Rstudio_window.png")
 ```
 
 ]
@@ -140,7 +140,7 @@ knitr::include_graphics(path = "Images/RStudio_window.png")
 
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics(path = "Images/RStudio.png")
+knitr::include_graphics(path = "Images/Rstudio.png")
 ```
 
 ]
@@ -174,7 +174,7 @@ https://www.r-studio.cloud
 .center[ #R Packages
 
 ```{r,echo=FALSE, out.width= 700, out.height= 450}
-knitr::include_graphics(path = "Images/R_packages.png")
+knitr::include_graphics(path = "Images/r_packages.png")
 ```
 
 
